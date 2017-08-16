@@ -1,12 +1,12 @@
-<%= form_for(@task) do |f| %>
-  <%= f.label :task_name %>
-  <%= f.text_field :task_name %>
+<h1>Here are all your tasks:</h1>
+<p><%= link_to "Click here to add a task" , new_task_path%></p>
+<ul>
+<% @tasks.each do |task| %>
+     <li><%= link_to task.name, task_path(task)%></li>
 
-  <%= f.label :details %>
-  <%= f.text_field :details %>
+<%end%>
+</ul>
 
-  <%= f.submit %>
-<% end %>
 
 <!--
 Should display a list of all tasks and, for each task:
